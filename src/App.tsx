@@ -6,11 +6,11 @@ import "./App.css";
 const LOG_IN = "log-in-event";
 const UPLOAD_FILE = "new-file-event";
 const DELETE_FILE = "delete-file-event";
-const UPDATE_FILE = "update-file-event";
+// const UPDATE_FILE = "update-file-event";
 const DELETE_ROOM = "delete-room-event";
 
-const FILE_ALREADY_EXISTS_ERROR = "already-exists-error";
-const FILE_DOES_NOT_EXISTS_ERROR = "does-not-exists-error";
+// const FILE_ALREADY_EXISTS_ERROR = "already-exists-error";
+// const FILE_DOES_NOT_EXISTS_ERROR = "does-not-exists-error";
 const ROOM_UPDATE_CALLBACK = "refresh-page-callback";
 const ROOM_DELETE_CALLBACK = "delete-room-callback";
 
@@ -87,6 +87,7 @@ function App() {
             <td className="tf-name">Name</td>
             <td className="tf-type">Type</td>
             <td className="tf-data">Data</td>
+            <td className="tf-delete"></td>
           </tr>
         </thead>
         <tbody>
@@ -95,6 +96,16 @@ function App() {
               <td className="tf-name-row">{file.name}</td>
               <td className="tf-type-row">{file.type}</td>
               <td className="tf-data-row">{file.data}</td>
+              <td className="tf-delete-row">
+                <button
+                  id={String(i)}
+                  onClick={(e: React.SyntheticEvent) => {
+                    socket?.emit(DELETE_FILE, room.id, file.name);
+                  }}
+                >
+                  🗑️
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -30,12 +30,23 @@ td {
 
 .tf-type,
 .tf-type-row {
-  width: 8ch;
+  width: 5%;
+  min-width: 8ch;
 }
 
 .tf-name,
 .tf-name-row {
-  width: 30ch;
+  width: 24%;
+}
+
+.tf-data,
+.tf-data-row {
+  width: 70%;
+}
+
+.tf-delete,
+.tf-delete-row {
+  max-width: 3ch;
 }
 
 code {
